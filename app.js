@@ -12,7 +12,7 @@ const categoryRouter = require('./routes/category');
 const subCategoryRouter = require('./routes/subcategory');
 const productRouter = require('./routes/product');
 app.use(express.json());
-app.use(cors);
+app.use(cors{ origin: 'https://shop-backend-three-opal.vercel.app' });
 app.get('/', (req, res) => {
     res.json({ msg: "Server is wokring" });
 });
