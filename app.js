@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require('cors');
 dotenv.config();
 const app = express();
 const PORT = 3000;
@@ -12,7 +11,6 @@ const categoryRouter = require('./routes/category');
 const subCategoryRouter = require('./routes/subcategory');
 const productRouter = require('./routes/product');
 app.use(express.json());
-app.use(cors);
 app.get('/', (req, res) => {
     res.json({ msg: "Server is wokring" });
 });
