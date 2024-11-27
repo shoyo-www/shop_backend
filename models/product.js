@@ -31,6 +31,12 @@ const productSchema = mongoose.Schema({
     required : true
    }
    ],
+   sizes : [
+      {
+       type : String,
+       required : true
+      }
+   ],
    popular : {
     type : Boolean,
     default : true
