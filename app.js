@@ -10,15 +10,17 @@ const bannerRouter = require('./routes/banner');
 const categoryRouter = require('./routes/category');
 const subCategoryRouter = require('./routes/subcategory');
 const productRouter = require('./routes/product');
+const wishlist_controller = require('./routes/wishlist_controller');
 app.use(express.json());
 app.get('/', (req, res) => {
-    res.json({ msg: "Server is wokring" });
+    res.json({ msg: "Server is working" });
 });
 app.use(authRouter);
 app.use(bannerRouter);
 app.use(categoryRouter);
 app.use(subCategoryRouter);
 app.use(productRouter);
+app.use(wishlist_controller);
 mongoose.connect(DB).then(()=> {
     console.log('conected');
 });

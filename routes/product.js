@@ -30,7 +30,7 @@ productRouter.get('/api/products',verify,async(req,res)=>{
 }
 });
 
-productRouter.get('/api/single/:id', async (req, res) => {
+productRouter.get('/api/single/:id', verify,async (req, res) => {
     try {
         const { id } = req.params;
         if (!mongoose.Types.ObjectId.isValid(id)) {
