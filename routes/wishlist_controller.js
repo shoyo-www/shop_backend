@@ -35,7 +35,8 @@ wishlistRouter.post('/api/wishlist', verify, async (req, res) => {
       recommend: product.recommend,
     });
     await list.save();
-    await Product.findByIdAndUpdate(id, { wishlist: true });
+    await Product.findByIdAndUpdate(id, { wishList: true });
+    console.log("product" , Product);
     res.status(201).json({ status: true, msg: 'Product added to wishlist' });
   } catch (error) {
     console.error('Error adding product to wishlist:', error);
@@ -67,7 +68,7 @@ wishlistRouter.post('/api/remove-wishlist', verify, async (req, res) => {
     await WishList.findByIdAndDelete(id);
     await Product.findOneAndUpdate(
       { productName: wishListItem.productName },
-      { wishlist: false }
+      { wishList: false }
     );
 
     res.status(200).json({ status: true, msg: 'Removed Successfully' });
