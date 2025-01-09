@@ -41,6 +41,10 @@ const productSchema = mongoose.Schema({
     type : Boolean,
     default : true
    },
+   wishList : {
+      type : Boolean,
+      default : false
+     },
    recommend : {
     type : Boolean,
     default : false
