@@ -14,7 +14,7 @@ wishlistRouter.post('/api/wishlist', verify, async (req, res) => {
   
       const product = await Product.findById(id);
       if (!product) {
-        return res.status(404).json({ status : false,message: 'Product not found' });
+        return res.status(404).json({ status : false,msg: 'Product not found' });
       }
   
       const existingProduct = await WishList.findOne({ productName: product.productName });
@@ -37,7 +37,7 @@ wishlistRouter.post('/api/wishlist', verify, async (req, res) => {
   
       await list.save();
   
-      res.status(201).json({ status : true , message: 'Product added to wishlist', wishlist: list });
+      res.status(201).json({ status : true , msg: 'Product added to wishlist', wishlist: list });
     } catch (error) {
       console.error('Error adding product to wishlist:', error);
       res.status(500).json({ error: error.message });
