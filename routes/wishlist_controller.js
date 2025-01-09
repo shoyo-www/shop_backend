@@ -8,10 +8,7 @@ const wishlistRouter = express.Router();
 wishlistRouter.post('/api/wishlist', verify, async (req, res) => {
   try {
     const { id } = req.body;
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json({ status: false, msg: 'Invalid product ID' });
-    }
-
+  
     const product = await Product.findById(id);
     if (!product) {
       return res.status(404).json({ status: false, msg: 'Product not found' });
