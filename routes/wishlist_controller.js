@@ -45,7 +45,15 @@ wishlistRouter.post('/api/wishlist', verify, async (req, res) => {
   });
   
   
-
+  wishlistRouter.get('/api/getWishlist',verify,async(req,res)=>{
+    try {
+    const product = await Product.find();
+    return res.status(200).json({status : true,msg : 'fetched successfully' , product})
+} catch (error) {
+    res.status(500).json({status : false,msg : error.message});
+    console.log(error);
+}
+});
 
 
 module.exports = wishlistRouter;
